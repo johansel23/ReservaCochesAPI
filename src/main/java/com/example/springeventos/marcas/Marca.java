@@ -18,9 +18,9 @@ import lombok.NoArgsConstructor;
 public class Marca {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id_marca;
     @NotEmpty
-    private String nombre;
+    private String nombre_marca;
 
     
 }

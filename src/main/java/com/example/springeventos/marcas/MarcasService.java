@@ -28,7 +28,7 @@ public class MarcasService {
 
     public Marca update(Marca marca, int id) {
         if(marcaRepo.existsById(id)){
-            marca.setId(id);
+            marca.setId_marca(id);
             return marcaRepo.save(marca);
         }
         return null; // No existe
