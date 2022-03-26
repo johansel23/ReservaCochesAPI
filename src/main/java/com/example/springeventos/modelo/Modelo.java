@@ -1,8 +1,7 @@
 package com.example.springeventos.modelo;
 
-import java.util.Set;
+import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,9 +16,6 @@ import javax.validation.constraints.NotNull;
 import com.example.springeventos.coches.Coche;
 import com.example.springeventos.marcas.Marca;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-
-import org.hibernate.FetchMode;
-import org.hibernate.annotations.Fetch;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -42,6 +38,6 @@ public class Modelo {
 
     @JsonBackReference
     @OneToMany(targetEntity = Coche.class, mappedBy = "id_modelo", orphanRemoval = false, fetch = FetchType.LAZY)
-	private Set<Coche> coches;
+	private List<Coche> coches;
 
 }

@@ -1,6 +1,6 @@
 package com.example.springeventos.marcas;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -30,6 +30,6 @@ public class Marca {
     
     @JsonBackReference
     @OneToMany(targetEntity = Modelo.class, mappedBy = "id_marca", orphanRemoval = false, fetch = FetchType.LAZY)
-	private Set<Modelo> modelos;
+	private List<Modelo> modelos;
     
 }
