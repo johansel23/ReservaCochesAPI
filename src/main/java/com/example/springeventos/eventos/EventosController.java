@@ -34,15 +34,15 @@ import lombok.RequiredArgsConstructor;
 public class EventosController {
     private final @NonNull EventosService evService;
 
-    @GetMapping
-    public RespuestaEventosDto findAll() {
-        List<EventoSinUsuarios> eventos = evService.findAll();
-        List<Evento> eventos2 = eventos.stream().map(e -> {
-            return new Evento(e.getId(), e.getTitulo(), e.getDescripcion(), 
-                e.getPrecio(), e.getFecha(), ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString() + "/" + e.getImagen(), null);
-        }).collect(Collectors.toList());
-        return new RespuestaEventosDto(eventos2);
-    }
+    // @GetMapping
+    // public RespuestaEventosDto findAll() {
+    //     List<EventoSinUsuarios> eventos = evService.findAll();
+    //     List<Evento> eventos2 = eventos.stream().map(e -> {
+    //         return new Evento(e.getId(), e.getTitulo(), e.getDescripcion(), 
+    //             e.getPrecio(), e.getFecha(), ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString() + "/" + e.getImagen(), null);
+    //     }).collect(Collectors.toList());
+    //     return new RespuestaEventosDto(eventos2);
+    // }
 
     @GetMapping("/{id}")
     public ResponseEntity<RespuestaEventoDto> findById(@PathVariable int id) {

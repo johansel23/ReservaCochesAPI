@@ -31,7 +31,7 @@ public class UsuariosController {
     private final @NonNull UsuariosService usuService;
 
     @GetMapping
-    public List<UsuarioSinEventos> findAll() {
+    public List<Usuario> findAll() {
         return usuService.findAll();
     }
 

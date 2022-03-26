@@ -3,6 +3,7 @@ package com.example.springeventos.cochesreserva;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 import com.example.springeventos.coches.Coche;
+import com.example.springeventos.usuarios.Usuario;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,6 +40,10 @@ public class CocheReserva {
     @ManyToOne()
     @JoinColumn(name = "id_coche", insertable = false, updatable = false)
 	private Coche coche;
+
+    @ManyToOne()
+    @JoinColumn(name = "id_usuario", insertable = false, updatable = false)
+	private Usuario usuario;
 
 
 

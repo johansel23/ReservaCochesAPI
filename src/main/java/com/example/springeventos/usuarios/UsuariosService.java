@@ -21,8 +21,8 @@ public class UsuariosService {
     private final @NonNull UsuariosRepository usuRepo;
     private final @NonNull EventosRepository evRepo;
 
-    public List<UsuarioSinEventos> findAll() {
-        return usuRepo.findBy();
+    public List<Usuario> findAll() {
+        return usuRepo.findAll();
     }
 
     public UsuarioConEventos findById(int id) {

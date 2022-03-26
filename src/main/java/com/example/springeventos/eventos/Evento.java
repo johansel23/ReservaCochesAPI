@@ -38,7 +38,7 @@ public class Evento {
     @NotEmpty
     private String imagen;
 
-    @ManyToMany(mappedBy = "eventos")
-    List<Usuario> asistentes;
+    // @ManyToMany(mappedBy = "eventos")
+    // List<Usuario> asistentes;
 }
 
