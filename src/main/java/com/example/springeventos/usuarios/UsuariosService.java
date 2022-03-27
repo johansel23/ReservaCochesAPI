@@ -8,7 +8,6 @@ import java.util.List;
 
 import com.example.springeventos.eventos.EventosRepository;
 import com.example.springeventos.usuarios.proyecciones.UsuarioConEventos;
-import com.example.springeventos.usuarios.proyecciones.UsuarioSinEventos;
 
 import org.springframework.stereotype.Service;
 
