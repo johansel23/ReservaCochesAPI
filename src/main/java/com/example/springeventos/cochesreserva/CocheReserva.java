@@ -3,7 +3,6 @@ package com.example.springeventos.cochesreserva;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,6 +18,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+// NOTA: De esta manera puedo hacer el Query desde la clase.
+// @NamedQuery(name = "CocheReserva.findByIdUsuario",
+//     query = "SELECT cr FROM CocheReserva cr WHERE cr.id_usuario = :id_usuario")
 @Data @AllArgsConstructor @NoArgsConstructor
 public class CocheReserva {
     @Id
@@ -44,9 +46,5 @@ public class CocheReserva {
     @ManyToOne()
     @JoinColumn(name = "id_usuario", insertable = false, updatable = false)
 	private Usuario usuario;
-
-
-
-
 
 }

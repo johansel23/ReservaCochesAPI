@@ -28,6 +28,11 @@ public class CochesReservaController {
         return cocheReservaService.findAll();
     }
 
+    @GetMapping("/idusuario/{id_usuario}")
+    public List<CocheReserva> findByIdUsuario(@PathVariable int id_usuario){
+        return cocheReservaService.findByIdUsuario(id_usuario);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<CocheReserva> findById(@PathVariable int id){
         CocheReserva cocheReserva = cocheReservaService.findById(id);
