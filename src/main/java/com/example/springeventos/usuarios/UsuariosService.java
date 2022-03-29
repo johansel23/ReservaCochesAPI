@@ -6,9 +6,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.List;
 
-import com.example.springeventos.eventos.EventosRepository;
-import com.example.springeventos.usuarios.proyecciones.UsuarioConEventos;
-
 import org.springframework.stereotype.Service;
 
 import lombok.NonNull;
@@ -18,15 +15,15 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class UsuariosService {
     private final @NonNull UsuariosRepository usuRepo;
-    private final @NonNull EventosRepository evRepo;
+    // private final @NonNull EventosRepository evRepo;
 
     public List<Usuario> findAll() {
         return usuRepo.findAll();
     }
 
-    public UsuarioConEventos findById(int id) {
-        return usuRepo.findWithEventosById(id);
-    }
+    // public UsuarioConEventos findById(int id) {
+    //     return usuRepo.findWithEventosById(id);
+    // }
 
     public Usuario insert(Usuario u) throws NoSuchAlgorithmException {
         u.setPassword(encodePassword(u.getPassword()));

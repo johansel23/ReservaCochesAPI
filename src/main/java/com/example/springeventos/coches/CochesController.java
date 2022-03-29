@@ -5,8 +5,6 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
-import com.example.springeventos.eventos.Evento;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
