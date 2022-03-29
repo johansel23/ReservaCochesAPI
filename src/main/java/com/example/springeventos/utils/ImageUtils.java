@@ -15,7 +15,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class ImageUtils {
     public String saveImageBase64(String dir, String imageB64) {
+		
 		String[] parts = imageB64.split(",");
+		
 		String base64 = parts.length > 1 ? parts[1] : parts[0];
 		String fileName = System.currentTimeMillis() + ".png";
 		BufferedImage image;

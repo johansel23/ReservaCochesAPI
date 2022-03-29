@@ -1,6 +1,9 @@
 package com.example.springeventos.cochesreserva;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.validation.constraints.Null;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -25,9 +29,19 @@ import lombok.RequiredArgsConstructor;
 public class CochesReservaController {
     private final @NonNull CochesReservaService cocheReservaService;
 
+    // @GetMapping
+    // public List<CocheReserva> findAll(){
+    //     return cocheReservaService.findAll();
+    // }
+
     @GetMapping
-    public List<CocheReserva> findAll(){
-        return cocheReservaService.findAll();
+    public List<CocheReserva> findAll() {
+        List<CocheReserva> cochesR = cocheReservaService.findAll();
+        List<CocheReserva> coche2 = cochesR.stream().map(cr -> {
+            return new CocheReserva(cr.getId_reserva(), cr.getId_coche(), cr.getFecha(), 
+            cr.getId_usuario(), cr.getIs_reservado(), cr.getCoche(), null);
+        }).collect(Collectors.toList());
+        return coche2;
     }
 
     @GetMapping("/idusuario/{id_usuario}")
