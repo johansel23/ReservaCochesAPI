@@ -44,7 +44,6 @@ public class Coche {
 
     private Boolean is_disponible;
 
-
     @ManyToOne()
     @JoinColumn(name = "id_modelo", insertable = false, updatable = false)
 	private Modelo modelo;

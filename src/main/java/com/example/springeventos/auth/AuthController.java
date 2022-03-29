@@ -1,6 +1,7 @@
 package com.example.springeventos.auth;
 
 import java.security.NoSuchAlgorithmException;
+import java.security.Principal;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
@@ -16,6 +17,7 @@ import com.example.springeventos.usuarios.UsuariosService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,6 +35,12 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/auth")
 public class AuthController {
     private final @NonNull UsuariosService usuService;
+
+    @GetMapping("/getCurrentUser")
+    public int currentUserId(Authentication authentication){
+        var userId = authentication.getCredentials();
+        return (int) userId;
+    }
 
     @PostMapping("/login")
     public ResponseEntity<TokenResponseDto> login(@RequestBody @Valid LoginDto login) throws NoSuchAlgorithmException {
