@@ -29,17 +29,14 @@ import lombok.RequiredArgsConstructor;
 public class CochesController {
     private final @NonNull CochesService cocheService;
 
-    // @GetMapping
-    // public List<Coche> findAll(){
-    //     return cocheService.findAll();
-    // }
 
     @GetMapping
     public List<Coche> findAll() {
         List<Coche> coches = cocheService.findAll();
         List<Coche> coche2 = coches.stream().map(c -> {
             return new Coche(c.getId_coche(), c.getId_modelo(), c.getAnyo(), 
-            c.getColor(), c.getCombustible(),c.getTransmision(), c.getPrecio(), ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString() + "/" + c.getImage(), c.getIs_disponible(), c.getModelo(), null);
+            c.getColor(), c.getCombustible(),c.getTransmision(), c.getPrecio(), 
+            ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString() + "/" + c.getImage(), c.getIs_disponible(), c.getModelo(), null);
         }).collect(Collectors.toList());
         return coche2;
     }

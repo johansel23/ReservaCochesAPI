@@ -26,20 +26,11 @@ public class CochesService {
 
     }
 
-    // public Coche insert(Coche co){
-    //     return cocheRepo.save(co);
-    // }
-
     public Coche insert(Coche c) {
         String ruta = imgUtils.saveImageBase64("coches", c.getImage());
         c.setImage(ruta);
         return cocheRepo.save(c);
     }
-    // public Evento insert(Evento e) {
-    //     String ruta = imgUtils.saveImageBase64("eventos", e.getImagen());
-    //     e.setImagen(ruta);
-    //     return eventRepo.save(e);
-    // }
 
     public Coche update(Coche coche,int id ){
         if(cocheRepo.existsById(id)){

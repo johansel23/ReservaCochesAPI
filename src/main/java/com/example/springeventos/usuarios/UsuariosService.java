@@ -15,15 +15,11 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class UsuariosService {
     private final @NonNull UsuariosRepository usuRepo;
-    // private final @NonNull EventosRepository evRepo;
+    
 
     public List<Usuario> findAll() {
         return usuRepo.findAll();
     }
-
-    // public UsuarioConEventos findById(int id) {
-    //     return usuRepo.findWithEventosById(id);
-    // }
 
     public Usuario insert(Usuario u) throws NoSuchAlgorithmException {
         u.setPassword(encodePassword(u.getPassword()));
@@ -42,9 +38,6 @@ public class UsuariosService {
         return null; // No existe
     }
 
-    public void asistirEvento(int idUsuario, int idEvento) {
-        usuRepo.asistirEvento(idUsuario, idEvento);
-    }
 
     private String encodePassword(String pass) throws NoSuchAlgorithmException {
 		MessageDigest digest = MessageDigest.getInstance("SHA-256");

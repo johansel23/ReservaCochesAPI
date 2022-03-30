@@ -28,15 +28,7 @@ public class UsuariosController {
         return usuService.findAll();
     }
 
-    // @GetMapping("/{id}")
-    // public ResponseEntity<UsuarioConEventos> findById(@PathVariable int id) {
-    //     UsuarioConEventos e = usuService.findById(id);
-    //     if(e == null) {
-    //         return ResponseEntity.notFound().build();
-    //     } else {
-    //         return ResponseEntity.ok().body(e);
-    //     }
-    // }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<Usuario> update(@RequestBody @Valid Usuario evento, @PathVariable int id) {
