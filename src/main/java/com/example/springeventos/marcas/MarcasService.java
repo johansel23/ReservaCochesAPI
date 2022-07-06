@@ -32,6 +32,16 @@ public class MarcasService {
             return marcaRepo.save(marca);
         }
         return null; // No existe
+        
+        //OTRO METODO QUE PEUDE AYUDAR PARA ACTUALIZAR
+        /*
+        Marca mar = findById(id);
+        if(marcaRepo.existsById(id)){
+            mar.setName(marca.getName());
+            return marcaRepo.save(mar);
+        }
+        return null; // No existe
+        */
     }
 
     public void delete(int id) {
